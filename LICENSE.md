@@ -1,5 +1,7 @@
 The MIT License
 
+Copyright (c) 2023 Istvan Nagy. [nagyist@mail.com](mailto:nagyist@mail.com)
+
 Copyright (c) 2018 Danny Vink. [contact@dannyvink.com](mailto:contact@dannyvink.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

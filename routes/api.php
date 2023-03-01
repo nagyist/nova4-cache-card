@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Nagyist\Cachecardnova4\Http\Controllers\CacheCardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 | as many additional routes to this file as your card may require.
 |
 */
-Route::post('/flush', 'Vink\NovaCacheCard\Http\Controllers\CacheCardController@flush');
-Route::post('/cache', 'Vink\NovaCacheCard\Http\Controllers\CacheCardController@forget');
-Route::get('/cache', 'Vink\NovaCacheCard\Http\Controllers\CacheCardController@get');
+Route::controller(CacheCardController::class)->group(function () {
+    Route::post('flush', 'flush');
+    Route::post('cache','forget');
+    Route::get('cache',  'get');
+    Route::get('/',  'get');
+});

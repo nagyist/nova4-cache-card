@@ -1,13 +1,14 @@
-# Laravel Nova - Cache Management Card
+# Laravel Nova4 - Cache Management Card
 
 Manage your application's cache from a handy Laravel Nova dashboard card.
 
 ## Installation
 
 You can install the package in to any app running [Laravel Nova](https://nova.laravel.com) via Composer:
+Based on the work from Danny Vink (vink/nova-cache-card).
 
 ```bash
-composer require vink/nova-cache-card
+composer require nagyist/nova4-cache-card
 ```
 
 Once installed, you need to add the card to your `NovaServiceProvider.php` file:
@@ -21,7 +22,7 @@ public function cards()
 {
     return [
         // ...
-        new \Vink\NovaCacheCard\CacheCard(),
+        new \Nagyist\Nova4CacheCard\CacheCard(),
     ];
 }
 ```

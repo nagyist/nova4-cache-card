@@ -1,6 +1,6 @@
 <?php
 
-namespace Vink\NovaCacheCard;
+namespace Nagyist\Cachecardnova4;
 
 class CacheHelpers {
     /**

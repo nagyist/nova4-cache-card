@@ -1,11 +1,11 @@
 <?php
 
-namespace Vink\NovaCacheCard;
+namespace Nagyist\Cachecardnova4;
 
 use Laravel\Nova\Card;
 use Illuminate\Support\Facades\Storage;
 
-class CacheCard extends Card
+class CacheCardNova4 extends Card
 {
     /**
      * The width of the card (1/3, 1/2, or full).

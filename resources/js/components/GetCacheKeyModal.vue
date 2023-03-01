@@ -12,21 +12,25 @@
 
             <div class="bg-30 px-6 py-3 flex">
                 <div class="ml-auto">
-                    <button dusk="cancel-get-key-button" type="button" data-testid="cancel-button" @click.prevent="handleClose" class="btn text-80 font-normal h-9 px-3 mr-3 btn-link">{{__('Cancel')}}</button>
-                    <button dusk="confirm-get-key-button" ref="confirmButton" data-testid="confirm-button" @click.prevent="handleConfirm" class="btn btn-default btn-primary">{{__('Get')}}</button>
+                    <button dusk="cancel-get-key-button" type="button" data-testid="cancel-button" @click.prevent="handleClose" class="rounded btn text-80 font-normal h-9 px-3 mr-3 p-2 hover:bg-gray-50 btn-link">{{__('Cancel')}}</button>
+                    <button dusk="confirm-get-key-button" ref="confirmButton" data-testid="confirm-button" @click.prevent="handleConfirm" class="rounded btn btn-default btn-primary p-2 bg-primary-500 text-white">{{__('Get')}}</button>
                 </div>
             </div>
         </div>
-    </modal>
+    </Modal>
 </template>
 
 <script>
 export default {
+  name: "GetCacheKeyModal",
+
     /**
      * Mount the component.
      */
     mounted() {
-        this.$refs.confirmButton.focus()
+      if(this.$refs?.confirmButton) {
+        this.$refs.confirmButton.focus();
+      }
     },
 
     data() {

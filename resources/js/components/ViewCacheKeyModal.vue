@@ -11,7 +11,7 @@
 
             <div class="bg-30 px-6 py-3 flex">
                 <div class="ml-auto">
-                    <button dusk="close-view-key-button" ref="confirmButton" data-testid="confirm-button" @click.prevent="handleConfirm" class="btn btn-default btn-primary">{{__('Close')}}</button>
+                   <button dusk="close-view-key-button" ref="confirmButton" data-testid="confirm-button" @click.prevent="handleConfirm" class="rounded btn btn-default btn-primary p-2 bg-primary-500 text-white">{{__('Close')}}</button>
                 </div>
             </div>
         </div>
@@ -20,10 +20,13 @@
 
 <script>
 export default {
-    props: ['cacheKey', 'value'],
+  name: "ViewCacheKeyModal",
+  props: ['cacheKey', 'value'],
 
     mounted() {
-        this.$refs.confirmButton.focus()
+      if(this.$refs?.confirmButton) {
+        this.$refs.confirmButton.focus();
+      }
     },
 
     methods: {

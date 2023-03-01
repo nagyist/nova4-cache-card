@@ -1,11 +1,12 @@
 <?php
 
-namespace Vink\NovaCacheCard;
+namespace Nagyist\Cachecardnova4;
 
-use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
+use Nagyist\NovaMarkdown\Http\Middleware\Authorize;
 
 class CardServiceProvider extends ServiceProvider
 {
@@ -20,10 +21,12 @@ class CardServiceProvider extends ServiceProvider
             $this->routes();
         });
 
+
         Nova::serving(function (ServingNova $event) {
-            Nova::script('cache-card', __DIR__.'/../dist/js/card.js');
-            Nova::style('cache-card', __DIR__.'/../dist/css/card.css');
+            Nova::script('cachecardnova4', __DIR__.'/../dist/js/card.js');
+            Nova::style('cachecardnova4', __DIR__.'/../dist/css/card.css');
         });
+
     }
 
     /**
@@ -37,9 +40,12 @@ class CardServiceProvider extends ServiceProvider
             return;
         }
 
-        Route::middleware(['nova'])
-                ->prefix('nova-vendor/cache-card')
-                ->group(__DIR__.'/../routes/api.php');
+        Nova::router(['nova:api', Authorize::class], 'cache-card')
+            ->group(__DIR__.'/../routes/inertia.php');
+
+        Route::middleware(['nova:api', Authorize::class])
+            ->prefix('nova-vendor/nagyist/cachecardnova4')
+            ->group(__DIR__.'/../routes/api.php');
     }
 
     /**

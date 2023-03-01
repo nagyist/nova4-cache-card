@@ -1,35 +1,23 @@
 {
-    "name": "vink/nova-cache-card",
-    "description": "Manage your application's cache from a handy Laravel Nova dashboard card.",
+    "name": "nagyist/cachecardnova4",
+    "description": "A Laravel Nova card.",
     "keywords": [
         "laravel",
-        "nova",
-        "cache",
-        "file",
-        "redis"
+        "nova"
     ],
-    "homepage": "https://github.com/dannyvink/nova-cache-card",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Danny Vink",
-            "email": "danny@dannyvink.com",
-            "role": "Developer"
-        }
-    ],
     "require": {
-        "php": ">=7.1.0",
-        "laravel/nova": "*"
+        "php": "^8.1|^8.2"
     },
     "autoload": {
         "psr-4": {
-            "Vink\\NovaCacheCard\\": "src/"
+            "Nagyist\\Cachecardnova4\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Vink\\NovaCacheCard\\CardServiceProvider"
+                "Nagyist\\Cachecardnova4\\CardServiceProvider"
             ]
         }
     },

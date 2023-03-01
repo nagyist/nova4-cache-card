@@ -1,15 +1,16 @@
 <?php
 
-namespace Vink\NovaCacheCard\Http\Controllers;
+namespace Nagyist\Cachecardnova4\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Cache;
-use Vink\NovaCacheCard\CacheHelpers;
-
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Metrics\Value;
+use Nagyist\Cachecardnova4\CacheHelpers;
 class CacheCardController extends Controller
 {
-    public function flush(): array
+    public function flush(NovaRequest $request): array
     {
         /**
          * Throw something in the cache to make sure there is a valid connection. This also ensures that
@@ -24,7 +25,7 @@ class CacheCardController extends Controller
         ];
     }
 
-    public function forget(Request $request): array
+    public function forget(NovaRequest $request): array
     {
         $key = $request->get('cacheKey');
 
@@ -35,7 +36,7 @@ class CacheCardController extends Controller
         ];
     }
 
-    public function get(Request $request): array
+    public function get(NovaRequest $request): array
     {
         $key = $request->get('cacheKey');
         $result = Cache::get($key);
@@ -47,4 +48,5 @@ class CacheCardController extends Controller
             'size' => CacheHelpers::getFileCacheSize(),
         ];
     }
+
 }
